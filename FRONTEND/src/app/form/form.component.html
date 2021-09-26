@@ -1,0 +1,96 @@
+<div class="container">
+    <form id="formBloc" class="row g-3 needs-validation form-bloc container" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltip01" class="form-label">First name</label>
+            <input name = "firstname" ngModel type="text" class="form-control" id="validationTooltip01" placeholder="Clark" required>
+            <div *ngIf="conditionfirstname" class="condition">
+                Please select a valid first name, without number.
+            </div>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip02" class="form-label">Last name</label>
+            <input name = "lastname" ngModel type="text" class="form-control" id="validationTooltip02" placeholder="Kent" required>
+            <div *ngIf="conditionlastname" class="condition">
+                Please select a valid last name, without number.
+            </div>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltipUsername" class="form-label">Username</label>
+            <div class="input-group has-validation">
+            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+            <input name = "username" ngModel type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+            <div *ngIf="conditionusername" class="condition">
+                Please choose a unique and valid username, with number.
+            </div>
+            </div>
+        </div>
+        <div class="col-md-2 position-relative">
+            <label for="validationTooltipCivility" class="form-label">Civility</label>
+            <select name = "civility" ngModel class="form-select" id="validationTooltipCivility" required>
+            <option selected value="MR">Mr</option>
+            <option value="MS">Ms</option>
+            </select>
+        </div>
+        <div class="col-md-8 position-relative">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <input name = "email" ngModel type="email" class="form-control" id="inputEmail3" placeholder="superman@superhero.com">
+            <div *ngIf="conditionemail" class="condition">
+                Please select a valid email, with '.' and '@'.
+            </div>
+        </div>
+        <div class="col-md-4 position-relative">
+            <label for="validationTooltipPhone" class="form-label">Phone</label>
+            <input name = "phone" ngModel type="text" class="form-control chiffres" id="validationTooltipPhone" placeholder="310 450 339..." required>
+            <div *ngIf="conditionphone" class="condition">
+                Please provide a valid phone.
+            </div>
+        </div>
+        <div class="col-12 position-relative">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input name = "address" ngModel type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <div *ngIf="conditionaddress" class="condition">
+                Please provide a valid address, with a street number.
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="validationTooltip03" class="form-label">City</label>
+            <input name = "city" ngModel type="text" class="form-control" id="validationTooltip03" placeholder="Metropolis" required>
+            <div *ngIf="conditioncity" class="condition">
+                Please provide a valid city, without number.
+            </div>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip04" class="form-label">State</label>
+            <select name = "state" ngModel class="form-select" id="validationTooltip04" required>
+            <option selected value="USA">United-States</option>
+            <option value="GB">London</option>
+            </select>
+        </div>
+        <div class="col-md-3 position-relative">
+            <label for="validationTooltip05" class="form-label">Zip</label>
+            <input name = "zip" ngModel type="text" class="form-control chiffres" id="validationTooltip05" required>
+            <div *ngIf="conditionzip" class="condition">
+                Please provide a valid zip.
+            </div>
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="inputPassword3" class="form-label">Password</label>
+            <input name = "psw" ngModel type="password" class="form-control" id="inputPassword3">
+        </div>
+        <div class="col-md-6 position-relative">
+            <label for="inputPassword3Confirm" class="form-label">Password confirmation</label>
+            <input name = "pswconf" ngModel type="password" class="form-control" id="inputPassword3Confirm">      
+            <div *ngIf="conditionpswconf" class="condition">
+                Please enter the same password.
+            </div>
+        </div>
+        <div class="col-12">
+            <div *ngIf="conditionnull" class="condition condition-null">
+                No value can be null.
+            </div>
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+    <app-recap [firstname]="firstname" [lastname]="lastname" [username]="username" [civility]="civility" [email]="email" [phone]="phone"
+    [address]="address" [city]="city" [state]="state" [zip]="zip" [hidden]="recapdisable"></app-recap>
+</div>
